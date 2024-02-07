@@ -1,13 +1,12 @@
 from django.db import models
 from pick.func import get_path_upload_photos
 
-# модель туриста не на базе встроенной модели User, тк по техзаданию не требуется регистрация
 class User(models.Model):
     email = models.EmailField()
     fam = models.TextField(max_length=255,verbose_name='Фамилия')
     name = models.TextField(max_length=255, verbose_name='Имя')
     otc = models.TextField(max_length=255, verbose_name='Отчество')
-    phone = models.TextField(max_length=255, verbose_name='Контактный телефон')
+    phone = models.TextField(max_length=255, verbose_name='телефон')
 
     class Meta:
         constraints = [models.UniqueConstraint(fields=['email'], name="user_unique")]
